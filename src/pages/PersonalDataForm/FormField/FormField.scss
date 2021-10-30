@@ -1,0 +1,35 @@
+@import '../../../variables';
+
+.Form-field {
+  width: 100%;
+
+  &_horizontal {
+    display: flex;
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    & .Form-control {
+      margin-bottom: 0;
+      margin-right: 18px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &__button {
+    align-self: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: $font-size-normal;
+    line-height: $line-height-normal;
+    color: $color-light-blue;
+    cursor: pointer;
+  }
+}

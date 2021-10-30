@@ -6,7 +6,7 @@
   width: 100%;
   height: $header-height;
   padding: 0 90px;
-  box-shadow: 0px 1px 0px rgba(17, 17, 17, 0.1);
+  box-shadow: $bottom-line;
 
   &__nav {
     flex-grow: 1;
@@ -17,11 +17,12 @@
       margin-right: 25px;
       text-decoration: none;
       font-size: $font-size-normal;
+      line-height: $line-height-normal;
       color: $color-light-gray;
-    }
 
-    &-link:last-child {
-      margin: 0;
+      &:last-child {
+        margin: 0;
+      }
     }
   }
 }

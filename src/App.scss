@@ -1,3 +1,5 @@
+@import './variables';
+
 .App {
   display: flex;
   flex-direction: column;
@@ -9,4 +11,29 @@
   flex-grow: 1;
   margin: 0 auto;
   padding: 30px 20px;
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  font-size: $font-size-subtitle;
+  font-weight: $font-weight-medium;
+  line-height: 1.5;
+  color: $color-dark-gray;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+.hidden {
+  display: none;
 }
