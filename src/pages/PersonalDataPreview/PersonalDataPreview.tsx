@@ -63,7 +63,7 @@ export const PersonalDataPreview: FC = () => {
       <div className="Personal-data-preview__block">
         <Subtitle text="Дети" />
         {children.length === 0 ? (
-          <p>Нет данных</p>
+          <p className="Personal-data-preview__text">Нет данных</p>
         ) : (
           children.map((childData) => (
             <p

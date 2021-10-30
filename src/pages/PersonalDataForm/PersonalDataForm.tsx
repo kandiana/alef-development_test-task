@@ -15,14 +15,15 @@ import './PersonalDataForm.scss';
 
 const nanoid = customAlphabet('1234567890abcdefghijklmnopqrstuvwxyz', 10);
 
-const MAX_NUMBER_OF_CHILDREN = 5;
-
 export const PersonalDataForm: FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [personData, setPersonData] = useState(useSelector((state: state) => state.personData));
-  const [childrenData, setChildrenData] = useState(useSelector((state: state) => state.children));
+  const state = useSelector((state: state) => state);
+
+  const [personData, setPersonData] = useState(state.personData);
+  const [childrenData, setChildrenData] = useState(state.children);
+  const maxNumberOfChildren = state.maxNumberOfChildren;
 
   const handleUserDataInput = useCallback((event) => {
     const { target } = event;
@@ -108,7 +109,7 @@ export const PersonalDataForm: FC = () => {
       <div className="Personal-data-form__fieldset">
         <div className="Personal-data-form__fieldset-header">
           <Subtitle text="Дети (макс. 5)" />
-          {childrenData.length === MAX_NUMBER_OF_CHILDREN ? null : (
+          {childrenData.length === maxNumberOfChildren ? null : (
             <Button onClick={addChildDataField}>
               <Plus className="Button__icon" />
               Добавить ребенка

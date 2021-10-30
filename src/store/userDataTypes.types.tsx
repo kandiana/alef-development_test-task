@@ -11,4 +11,5 @@ export type childData = {
 export type state = {
   personData: personData;
   children: childData[];
+  maxNumberOfChildren: 5;
 };

@@ -14,5 +14,3 @@ export const store = createStore(userDataReducer, persistedUserData);
 store.subscribe(() => {
   localStorage.setItem('userData', JSON.stringify(store.getState()));
 });
-
-store.dispatch({ type: '' });
