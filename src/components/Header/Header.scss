@@ -5,12 +5,12 @@
   align-items: center;
   width: 100%;
   height: $header-height;
-  padding: 0 90px;
+  padding: 0 calc(min(10%, 92px));
   box-shadow: $bottom-line;
 
   &__nav {
     flex-grow: 1;
-    padding-left: 15px;
+    padding-left: 0px;
     text-align: center;
 
     &-link {
