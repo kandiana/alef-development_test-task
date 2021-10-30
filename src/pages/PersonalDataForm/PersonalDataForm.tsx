@@ -6,9 +6,10 @@ import { customAlphabet } from 'nanoid';
 import { state } from '../../store/userDataTypes.types';
 import { saveInputUserData } from '../../store/userDataAction';
 
+import { FormField } from './FormField/FormField';
+import { Subtitle } from '../../components/Subtitle/Subtitle';
 import { Button } from '../../components/Button/Button';
 import { ReactComponent as Plus } from '../../assets/imgs/Plus.svg';
-import { FormField } from './FormField/FormField';
 
 import './PersonalDataForm.scss';
 
@@ -100,12 +101,12 @@ export const PersonalDataForm: FC = () => {
       <h1 className="visually-hidden">Форма персональных данных</h1>
       <form action="#" className="Personal-data-form" onSubmit={saveFormData}>
         <div className="Personal-data-form__fieldset">
-          <h2 className="subtitle">Персональные данные</h2>
+          <Subtitle text="Персональные данные" />
           <FormField id="user" stateData={userData} onChange={handleUserDataInput} />
         </div>
         <div className="Personal-data-form__fieldset">
           <div className="Personal-data-form__fieldset-header">
-            <h2 className="subtitle">Дети (макс. 5)</h2>
+            <Subtitle text="Дети (макс. 5)" />
             {childrenData.length === MAX_NUMBER_OF_CHILDREN ? null : (
               <Button onClick={addChildDataField}>
                 <Plus className="Button__icon" />

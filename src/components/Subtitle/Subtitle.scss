@@ -1,0 +1,9 @@
+@import '../../variables';
+
+.Subtitle {
+  margin: 0 0 20px;
+  font-size: $font-size-subtitle;
+  font-weight: $font-weight-medium;
+  line-height: 1.5;
+  color: $color-dark-gray;
+}
