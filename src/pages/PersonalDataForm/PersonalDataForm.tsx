@@ -21,14 +21,14 @@ export const PersonalDataForm: FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [userData, setUserData] = useState(useSelector((state: state) => state.data));
+  const [personData, setPersonData] = useState(useSelector((state: state) => state.personData));
   const [childrenData, setChildrenData] = useState(useSelector((state: state) => state.children));
 
   const handleUserDataInput = useCallback((event) => {
     const { target } = event;
     const key = target.name.split('_')[0];
 
-    setUserData((prev) => ({
+    setPersonData((prev) => ({
       ...prev,
       [key]:
         target.inputMode === 'numeric'
@@ -46,7 +46,7 @@ export const PersonalDataForm: FC = () => {
       ...prev,
       {
         id: nanoid(),
-        data: { name: '' },
+        personData: { name: '' },
       },
     ]);
   }, []);
@@ -68,8 +68,8 @@ export const PersonalDataForm: FC = () => {
         childData.id === id
           ? {
               id,
-              data: {
-                ...childData.data,
+              personData: {
+                ...childData.personData,
                 [key]:
                   target.inputMode === 'numeric'
                     ? target.value
@@ -88,8 +88,10 @@ export const PersonalDataForm: FC = () => {
 
     dispatch(
       saveInputUserData(
-        userData,
-        childrenData.filter((childData) => childData.data.name !== '' || childData.data.age)
+        personData,
+        childrenData.filter(
+          (childData) => childData.personData.name !== '' || childData.personData.age
+        )
       )
     );
 
@@ -97,36 +99,34 @@ export const PersonalDataForm: FC = () => {
   };
 
   return (
-    <>
+    <form action="#" className="Personal-data-form" onSubmit={saveFormData}>
       <h1 className="visually-hidden">Форма персональных данных</h1>
-      <form action="#" className="Personal-data-form" onSubmit={saveFormData}>
-        <div className="Personal-data-form__fieldset">
-          <Subtitle text="Персональные данные" />
-          <FormField id="user" stateData={userData} onChange={handleUserDataInput} />
+      <div className="Personal-data-form__fieldset">
+        <Subtitle text="Персональные данные" />
+        <FormField id="user" personData={personData} onChange={handleUserDataInput} />
+      </div>
+      <div className="Personal-data-form__fieldset">
+        <div className="Personal-data-form__fieldset-header">
+          <Subtitle text="Дети (макс. 5)" />
+          {childrenData.length === MAX_NUMBER_OF_CHILDREN ? null : (
+            <Button onClick={addChildDataField}>
+              <Plus className="Button__icon" />
+              Добавить ребенка
+            </Button>
+          )}
         </div>
-        <div className="Personal-data-form__fieldset">
-          <div className="Personal-data-form__fieldset-header">
-            <Subtitle text="Дети (макс. 5)" />
-            {childrenData.length === MAX_NUMBER_OF_CHILDREN ? null : (
-              <Button onClick={addChildDataField}>
-                <Plus className="Button__icon" />
-                Добавить ребенка
-              </Button>
-            )}
-          </div>
-          {childrenData.map((childData) => (
-            <FormField
-              key={childData.id}
-              id={childData.id}
-              stateData={childData.data}
-              onChange={handleChildDataInput}
-              deleteField={removeChildDataField(childData.id)}
-              horizontal={true}
-            />
-          ))}
-        </div>
-        <Button filled={true}>Сохранить</Button>
-      </form>
-    </>
+        {childrenData.map((childData) => (
+          <FormField
+            key={childData.id}
+            id={childData.id}
+            personData={childData.personData}
+            onChange={handleChildDataInput}
+            deleteField={removeChildDataField(childData.id)}
+            horizontal={true}
+          />
+        ))}
+      </div>
+      <Button filled={true}>Сохранить</Button>
+    </form>
   );
 };

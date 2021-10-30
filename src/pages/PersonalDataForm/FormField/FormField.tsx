@@ -4,11 +4,11 @@ import classnames from 'classnames';
 import { FormControl } from '../FormControl/FormControl';
 
 import './FormField.scss';
-import { userData } from '../../../store/userDataTypes.types';
+import { personData } from '../../../store/userDataTypes.types';
 
 export type FormFieldProps = {
   id: string;
-  stateData: userData;
+  personData: personData;
   onChange: ChangeEventHandler<HTMLInputElement>;
   deleteField?: MouseEventHandler<HTMLButtonElement>;
   horizontal?: boolean;
@@ -16,7 +16,7 @@ export type FormFieldProps = {
 
 export const FormField: FC<FormFieldProps> = ({
   id,
-  stateData,
+  personData,
   onChange,
   deleteField,
   horizontal = false,
@@ -24,11 +24,11 @@ export const FormField: FC<FormFieldProps> = ({
   const FormFieldClasses = classnames('Form-field', { 'Form-field_horizontal': horizontal });
   return (
     <div className={FormFieldClasses}>
-      <FormControl name={`name_${id}`} label="Имя" value={stateData.name} onChange={onChange} />
+      <FormControl name={`name_${id}`} label="Имя" value={personData.name} onChange={onChange} />
       <FormControl
         name={`age_${id}`}
         label="Возраст"
-        value={stateData.age ? stateData.age.toString() : ''}
+        value={personData.age ? personData.age.toString() : ''}
         onChange={onChange}
         inputMode="numeric"
       />

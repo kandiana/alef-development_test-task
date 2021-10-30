@@ -1,14 +1,14 @@
-export type userData = {
+export type personData = {
   name: string;
   age?: number;
 };
 
 export type childData = {
   id: string;
-  data: userData;
+  personData: personData;
 };
 
 export type state = {
-  data: userData;
+  personData: personData;
   children: childData[];
 };
