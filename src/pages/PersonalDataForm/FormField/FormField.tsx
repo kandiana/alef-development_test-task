@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { FormControl } from '../FormControl/FormControl';
 
 import './FormField.scss';
-import { userData } from '../PersonalDataForm';
+import { userData } from '../../../store/userDataTypes.types';
 
 export type FormFieldProps = {
   id: string;

@@ -17,6 +17,10 @@
       align-items: center;
       margin-bottom: 10px;
 
+      &:last-child {
+        margin: 0;
+      }
+
       & .subtitle {
         margin: 0;
       }
