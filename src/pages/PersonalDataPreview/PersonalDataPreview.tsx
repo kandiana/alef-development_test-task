@@ -13,7 +13,7 @@ export const PersonalDataPreview: FC = () => {
   const { personData, children } = useSelector((state: state) => state);
 
   const formatAge = (age: number) => {
-    if ((age > 4 && age < 20) || age % 10 === 0 || age % 10 > 5) {
+    if ((age > 4 && age < 20) || age % 10 === 0 || age % 10 > 4) {
       return `${age} лет`;
     }
 
