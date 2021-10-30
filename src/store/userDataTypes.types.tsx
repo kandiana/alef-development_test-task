@@ -1,6 +1,6 @@
 export type userData = {
   name: string;
-  age: string;
+  age?: number;
 };
 
 export type childData = {

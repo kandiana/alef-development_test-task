@@ -28,7 +28,7 @@ export const FormField: FC<FormFieldProps> = ({
       <FormControl
         name={`age_${id}`}
         label="Возраст"
-        value={stateData.age}
+        value={stateData.age ? stateData.age.toString() : ''}
         onChange={onChange}
         inputMode="numeric"
       />

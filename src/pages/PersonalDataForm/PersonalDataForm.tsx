@@ -29,7 +29,12 @@ export const PersonalDataForm: FC = () => {
 
     setUserData((prev) => ({
       ...prev,
-      [key]: target.value,
+      [key]:
+        target.inputMode === 'numeric'
+          ? target.value
+            ? Number(target.value)
+            : undefined
+          : target.value,
     }));
   }, []);
 
@@ -40,7 +45,7 @@ export const PersonalDataForm: FC = () => {
       ...prev,
       {
         id: nanoid(),
-        data: { name: '', age: '' },
+        data: { name: '' },
       },
     ]);
   }, []);
@@ -59,14 +64,33 @@ export const PersonalDataForm: FC = () => {
 
     setChildrenData((prev) =>
       prev.map((childData) =>
-        childData.id === id ? { id, data: { ...childData.data, [key]: target.value } } : childData
+        childData.id === id
+          ? {
+              id,
+              data: {
+                ...childData.data,
+                [key]:
+                  target.inputMode === 'numeric'
+                    ? target.value
+                      ? Number(target.value)
+                      : undefined
+                    : target.value,
+              },
+            }
+          : childData
       )
     );
   }, []);
 
   const saveFormData = (event: React.FormEvent) => {
     event.preventDefault();
-    dispatch(saveInputUserData(userData, childrenData));
+
+    dispatch(
+      saveInputUserData(
+        userData,
+        childrenData.filter((childData) => childData.data.name !== '' || childData.data.age)
+      )
+    );
 
     history.push('/preview');
   };
