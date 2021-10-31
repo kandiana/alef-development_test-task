@@ -5,7 +5,7 @@
   align-items: center;
   width: 100%;
   height: $header-height;
-  padding: 0 calc(min(10%, 92px));
+  padding: 0 calc(9200% / 1366);
   box-shadow: $bottom-line;
 
   &__nav {

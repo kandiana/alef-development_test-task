@@ -5,9 +5,13 @@
   width: 100%;
   margin: 0 auto;
 
+  &__fieldsets {
+    margin-bottom: 30px;
+  }
+
   &__fieldset {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 33px;
 
     &:last-child {
       margin-bottom: 0;
@@ -18,10 +22,10 @@
       justify-content: space-between;
       align-items: center;
       height: 44px;
-      margin: 35px 0 10px;
+      margin-bottom: 11px;
 
       &:last-child {
-        margin-bottom: 0;
+        margin: 0;
       }
 
       & .Subtitle {

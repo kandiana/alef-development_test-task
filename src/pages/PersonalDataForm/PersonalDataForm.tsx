@@ -102,30 +102,32 @@ export const PersonalDataForm: FC = () => {
   return (
     <form action="#" className="Personal-data-form" onSubmit={saveFormData}>
       <h1 className="visually-hidden">Форма персональных данных</h1>
-      <div className="Personal-data-form__fieldset">
-        <Subtitle text="Персональные данные" />
-        <FormField id="user" personData={personData} onChange={handleUserDataInput} />
-      </div>
-      <div className="Personal-data-form__fieldset">
-        <div className="Personal-data-form__fieldset-header">
-          <Subtitle text="Дети (макс. 5)" />
-          {childrenData.length === maxNumberOfChildren ? null : (
-            <Button onClick={addChildDataField}>
-              <Plus className="Button__icon" />
-              Добавить ребенка
-            </Button>
-          )}
+      <div className="Personal-data-form__fieldsets">
+        <div className="Personal-data-form__fieldset">
+          <Subtitle text="Персональные данные" />
+          <FormField id="user" personData={personData} onChange={handleUserDataInput} />
         </div>
-        {childrenData.map((childData) => (
-          <FormField
-            key={childData.id}
-            id={childData.id}
-            personData={childData.personData}
-            onChange={handleChildDataInput}
-            deleteField={removeChildDataField(childData.id)}
-            horizontal={true}
-          />
-        ))}
+        <div className="Personal-data-form__fieldset">
+          <div className="Personal-data-form__fieldset-header">
+            <Subtitle text="Дети (макс. 5)" />
+            {childrenData.length === maxNumberOfChildren ? null : (
+              <Button onClick={addChildDataField}>
+                <Plus className="Button__icon" />
+                Добавить ребенка
+              </Button>
+            )}
+          </div>
+          {childrenData.map((childData) => (
+            <FormField
+              key={childData.id}
+              id={childData.id}
+              personData={childData.personData}
+              onChange={handleChildDataInput}
+              deleteField={removeChildDataField(childData.id)}
+              horizontal={true}
+            />
+          ))}
+        </div>
       </div>
       <Button filled={true}>Сохранить</Button>
     </form>
