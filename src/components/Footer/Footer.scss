@@ -1,0 +1,16 @@
+@import '/src/variables';
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: $footer-height;
+  background-color: $footer-background-color;
+  box-shadow: $bottom-line;
+
+  &__rights {
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+  }
+}

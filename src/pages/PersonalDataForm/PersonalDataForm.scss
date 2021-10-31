@@ -1,0 +1,36 @@
+@import '/src/variables';
+
+.Personal-data-form {
+  max-width: $content-max-width;
+  width: 100%;
+  margin: 0 auto;
+
+  &__fieldsets {
+    margin-bottom: 30px;
+  }
+
+  &__fieldset {
+    width: 100%;
+    margin-bottom: 33px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 44px;
+      margin-bottom: 11px;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      & .Subtitle {
+        margin: 0;
+      }
+    }
+  }
+}

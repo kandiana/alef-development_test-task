@@ -1,0 +1,29 @@
+@import '/src/variables';
+
+.Form-control {
+  margin: 0 0 10px;
+  width: 100%;
+  padding: 6px 16px;
+  border: 1px solid $color-gray;
+  border-radius: 4px;
+
+  &:last-child {
+    margin: 0;
+  }
+
+  &__label {
+    margin: 0 0 2px;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+    color: $color-light-gray;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-size: $font-size-normal;
+    height: $line-height-normal;
+    color: $color-dark-gray;
+  }
+}

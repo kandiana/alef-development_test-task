@@ -1,0 +1,28 @@
+@import '/src/variables';
+
+.Button {
+  display: flex;
+  align-items: center;
+  padding: 8px 18px;
+  border: 2px solid $color-light-blue;
+  border-radius: 100px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: $font-size-normal;
+  line-height: $line-height-normal;
+  color: $color-light-blue;
+  cursor: pointer;
+
+  &__icon {
+    margin-right: 8px;
+  }
+
+  & .Button__icon {
+    fill: white;
+  }
+
+  &_filled {
+    background-color: $color-light-blue;
+    color: white;
+  }
+}

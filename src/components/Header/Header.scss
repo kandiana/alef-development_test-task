@@ -1,0 +1,28 @@
+@import '/src/variables';
+
+.Header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $header-height;
+  padding: 0 calc(9200% / 1366);
+  box-shadow: $bottom-line;
+
+  &__nav {
+    flex-grow: 1;
+    padding-left: 0px;
+    text-align: center;
+
+    &-link {
+      margin-right: 25px;
+      text-decoration: none;
+      font-size: $font-size-normal;
+      line-height: $line-height-normal;
+      color: $color-light-gray;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
