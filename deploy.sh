@@ -3,11 +3,14 @@
 # stop deploy if there are errors
 set -e
 
-# build"
+# set base url
 export REACT_APP_PUBLIC_URL=alef-development_test-task
 
+# build
 npm run build
 cd build
+
+# github pages reload fix
 cp index.html 404.html
 
 # init git and push to a gh-pages branch
